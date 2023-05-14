@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '../../../public/logo.png'
 import React, { useState } from 'react'
+import { ButtonNetworks } from './buttons/ButtonNetworks'
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,6 +30,12 @@ export const Navbar = () => {
           </li>
           <li>
             <Link href='/rooms'>Rooms</Link>
+          </li>
+          <li>
+            <Link href='/rooms'>Eventos</Link>
+          </li>
+          <li>
+            <ButtonNetworks />
           </li>
         </ul>
       </div>

@@ -1,7 +1,6 @@
 'use client'
-
 import Banner from '@/app/components/Banner'
-import { ButtonNetworks } from '@/app/components/buttonNetworks/ButtonNetworks'
+import { Button } from '@/app/components/buttons/ButtonFeatures'
 import StyledCover from '@/app/components/StyledCover'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -31,9 +30,8 @@ export default function RoomDetail () {
     return (
       <div className='error'>
         <h3>no such room could be found...</h3>
-        <Link href='/rooms' className='btn-primary'>
-          back to rooms
-        </Link>
+
+        <Button title={'ver habitaciones'} to={'/rooms'} />
       </div>
     )
   }
@@ -55,9 +53,7 @@ export default function RoomDetail () {
     <>
       <StyledCover img={mainImg}>
         <Banner title={`${name} room`}>
-          <Link href='/rooms' className='btn-primary'>
-            back to rooms
-          </Link>
+          <Button title={'ver habitaciones'} to={'/rooms'} />
         </Banner>
       </StyledCover>
 
@@ -94,7 +90,6 @@ export default function RoomDetail () {
             return <li key={index}> - {item}</li>
           })}
         </ul>
-        <ButtonNetworks />
       </section>
     </>
   )

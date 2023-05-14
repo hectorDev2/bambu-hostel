@@ -2,10 +2,12 @@
 import { products } from '@/app/globalRedux/data'
 import { formatData } from '@/app/utils/formatData'
 import { createSlice } from '@reduxjs/toolkit'
+import { RoomObject } from '../interfaces'
+import { RoomSelect } from '../interfaces/roomSelect'
 
 export interface InitialState {
-  roomsList: any[]
-  favorites?: any[]
+  roomsList: RoomObject[]
+  favorites?: RoomObject[]
   filters: {
     type: string
     breakfast: boolean
@@ -21,9 +23,11 @@ export interface InitialState {
   featuredRooms?: any[]
 }
 const formatRooms = formatData(products)
-let featuredRooms = formatRooms.filter((room: any) => room.featured === true)
-let maxPrice = Math.max(...formatRooms.map((item: any) => item.price))
-let maxSize = Math.max(...formatRooms.map((item: any) => item.size))
+let featuredRooms = formatRooms.filter(
+  (room: RoomSelect) => room.featured === true
+)
+let maxPrice = Math.max(...formatRooms.map((item: RoomSelect) => item.price))
+let maxSize = Math.max(...formatRooms.map((item: RoomSelect) => item.size))
 
 export const initialState: InitialState = {
   roomsList: formatRooms,

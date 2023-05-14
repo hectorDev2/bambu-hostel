@@ -1,8 +1,7 @@
 'use client'
-
-import Link from 'next/link'
-import styled from 'styled-components'
 import Banner from './components/Banner'
+import { Button } from './components/buttons/ButtonFeatures'
+import { Comments } from './components/comments/Comments'
 import Cover from './components/Cover'
 import { FeaturedRooms } from './components/FeaturedRooms'
 import Services from './components/Services'
@@ -12,16 +11,15 @@ export default function Home () {
     <>
       <Cover>
         <Banner
-          title='luxurious rooms'
-          subtitle='deluxe rooms starting at $299'
+          title='Bambu hostel'
+          subtitle='el mejor hostel en el centro historico del cusco'
         >
-          <Link href='/rooms' className='btn-primary'>
-            our rooms
-          </Link>
+          <Button to='/rooms' title={'Habitaciones'} />
         </Banner>
       </Cover>
       <Services />
       <FeaturedRooms />
+      <Comments />
     </>
   )
 }
