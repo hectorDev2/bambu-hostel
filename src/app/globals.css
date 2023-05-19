@@ -7,6 +7,11 @@
     --primaryColor: #af9a7d;
     --mainWhite: #fff;
     --offWhite: #f7f7f7;
+
+    --green-aqua: #2a9d8f;
+    --green-weight: #264653;
+
+
     --mainBlack: #222;
     --mainGrey: #ececec;
     --darkGrey: #cfcfcf;
@@ -22,6 +27,9 @@
     background: var(--mainWhite);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.4;
+  }
+  svg{
+    color:var(--green-aqua)
   }
   h1 {
     font-size: 3em;
@@ -57,18 +65,16 @@
     display: inline-block;
     text-decoration: none;
     letter-spacing: var(--mainSpacing);
-    color: var(--mainBlack);
-    background: var(--primaryColor);
+    color: white;
+    font-weight: bold;
+    background: #e76f51;
     padding: 0.4rem 0.9rem;
-    border: 3px solid var(--primaryColor);
+    border: 3px solid #f4a261;
     transition: var(--mainTransition);
     text-transform: uppercase;
     cursor: pointer;
   }
-  .btn-primary:hover {
-    background: transparent;
-    color: var(--primaryColor);
-  }
+
   .loading {
     text-transform: capitalize;
     text-align: center;
@@ -94,7 +100,7 @@
     left: 0;
     width: 100%;
     padding: 0.25rem 2rem;
-    background: var(--offWhite);
+    background: var(--green-aqua);
     z-index: 1;
   }
   .nav-header {
@@ -109,19 +115,21 @@
   }
   .nav-icon {
     font-size: 1.5rem;
-    color: var(--primaryColor);
+    color: white;
   }
   .nav-links {
     height: 0;
     overflow: hidden;
     transition: var(--mainTransition);
     list-style-type: none;
+    align-items: center;
+
   }
   .nav-links a {
     display: block;
     text-decoration: none;
     padding: 1rem 0;
-    color: var(--mainBlack);
+    color:white;
     transition: var(--mainTransition);
     text-align: center;
     font-size: 1rem;
@@ -129,7 +137,7 @@
     letter-spacing: var(--mainSpacing);
   }
   .nav-links a:hover {
-    color: var(--primaryColor);
+    color: var(--green-weight);
   }
   
   .show-nav {
@@ -232,10 +240,10 @@
   /* end of Title */
   
   /* services */
-  .services {
+  .servicesBody {
     padding: 5rem 0;
   }
-  .services {
+  .servicesBody {
     background: var(--darkGrey);
     text-align: center;
   }
@@ -302,15 +310,27 @@
   /* end pf featured rooms */
   /* room */
   .room {
-    box-shadow: var(--lightShadow);
+    height: 100%;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
     transition: var(--mainTransition);
+    border-radius: 1em 1em 0 0;
+  }
+  .room img{
+    width:100%;
+    height:100%;
+    border-radius: 1em 1em 0 0;
   }
   .room:hover {
     box-shadow: var(--darkShadow);
+    border-radius: 1em 1em 0 0;
+
+
   }
   
   .img-container {
     position: relative;
+    border-radius: 1em 1em 0 0;
+
   }
   .img-container img {
     width: 100%;
@@ -321,13 +341,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--green-aqua);
     color: var(--mainWhite);
     padding: 0.3rem 0.6rem 0.5rem;
-    border-bottom-right-radius: 1rem;
+    border-radius: 1rem 0 0 0;
     font-size: 0.5rem;
     text-align: center;
     transition: var(--mainTransition);
+
   }
   .price-top h6 {
     margin-bottom: 0;
@@ -355,12 +376,16 @@
     transform: translate(-50%, -50%) scale(1);
   }
   .room-info {
-    background: var(--darkGrey);
+    background: var(--green-weight);
     text-transform: capitalize;
     padding: 0.5rem 0;
     text-align: center;
     font-weight: 700;
     letter-spacing: var(--mainSpacing);
+    color:white
+  }
+  .container-select{
+    display:flex;
   }
   /* end of room  */
   /* single room*/
@@ -465,15 +490,14 @@
   /* end of roomlist */
   /*  rooms fitler*/
   .filter-container {
-    padding: 5rem 0;
+    padding:1em 0;
   }
   .filter-form {
     width: 60vw;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(202px, 1fr));
-    grid-row-gap: 2rem;
-    grid-column-gap: 40px;
+    gap:10px;
+    display: flex;
+    justify-content: center;
   }
   .form-group {
     text-transform: capitalize;

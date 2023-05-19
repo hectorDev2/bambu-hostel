@@ -2,7 +2,7 @@ import React from 'react'
 import defaultImg from '../assets/images/room-1.jpeg'
 import { RoomObject } from '../interfaces'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Button } from './buttons/ButtonFeatures'
 interface Room {
   room: RoomObject
 }
@@ -15,11 +15,13 @@ const Room = ({ room }: Room) => {
         <Image src={images[0] || defaultImg} alt='single room' />
         <div className='price-top'>
           <h6>${price}</h6>
-          <p>per night</p>
+          <p>por noche</p>
         </div>
-        <Link href={`/rooms/${slug}`} className='btn-primary room-link'>
-          features
-        </Link>
+        <Button
+          className='room-link'
+          title='caracteristicas'
+          to={`/rooms/${slug}`}
+        />
       </div>
       <p className='room-info'>{name}</p>
     </article>

@@ -54,5 +54,6 @@ export interface StateSelector {
       maxSize: number
       minSize: number
     }
+    featuredRooms: []
   }
 }

@@ -1,7 +1,10 @@
+import { Select } from '@mui/base'
+import { FormControl, InputLabel } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Title from '../components/Title'
 import { StateSelector } from '../interfaces'
+import { SelectMul } from './components/Select'
 import { filterRooms, initialState, setFilter } from './RoomSlice'
 
 interface IPropsRoomsFilter {
@@ -27,9 +30,11 @@ const RoomsFilter = ({ rooms }: IPropsRoomsFilter) => {
   let types = getUnique(initialState.roomsList, 'type')
   types = ['all', ...types]
 
-  let people = getUnique(rooms, 'capacity')
+  let people = getUnique(initialState.roomsList, 'capacity')
 
   const handleChange = (e: any) => {
+    console.log('readys', e.target)
+
     const { name, value } = e.target
     const payload = {
       name,
@@ -56,47 +61,23 @@ const RoomsFilter = ({ rooms }: IPropsRoomsFilter) => {
     <section className='filter-container'>
       <Title title='search rooms' />
       <form className='filter-form'>
-        {/* select type */}
-        <div className='form-group'>
-          <label htmlFor='type'>room type</label>
-          <select
-            name='type'
-            id='type'
+        <div className='container-select'>
+          <SelectMul
+            label={'tipo'}
             value={type}
-            className='form-control'
-            onChange={handleChange}
-          >
-            {types.map((item: any, index: number) => {
-              return (
-                <option key={index} value={item}>
-                  {item}
-                </option>
-              )
-            })}
-          </select>
-        </div>
-        {/* end of select type */}
-        {/* guest */}
-        <div className='form-group'>
-          <label htmlFor='capacity'>guests</label>
-          <select
+            handleChange={handleChange}
+            options={types}
+            name='type'
+          />
+          <SelectMul
+            label={'capacidad'}
             name='capacity'
-            id='capacity'
             value={capacity}
-            className='form-control'
-            onChange={handleChange}
-          >
-            {people.map((item: any, index: number) => {
-              return (
-                <option key={index} value={item}>
-                  {item}
-                </option>
-              )
-            })}
-          </select>
+            handleChange={handleChange}
+            options={people}
+          />
         </div>
         {/* end of guest */}
-
         {/* extras */}
         <div className='form-group'>
           <div className='single-extra'>
