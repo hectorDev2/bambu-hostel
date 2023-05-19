@@ -1,13 +1,14 @@
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 import loadingGif from "../assets/images/gif/loading-arrow.gif";
 
 const Loading: React.FC = () => {
-    return (
+  return (
     <div className="loading">
       <h4>rooms data loading....</h4>
-      <img src={loadingGif} alt="loading..." />
+      <Image src={loadingGif} alt="loading..." />
     </div>
-    )
-}
+  );
+};
 
 export default Loading;
