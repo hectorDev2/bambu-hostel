@@ -101,7 +101,7 @@
     width: 100%;
     padding: 0.25rem 2rem;
     background: var(--green-aqua);
-    z-index: 2;
+    z-index: 1;
   }
   .nav-header {
     display: flex;
@@ -240,10 +240,10 @@
   /* end of Title */
   
   /* services */
-  .services {
+  .servicesBody {
     padding: 5rem 0;
   }
-  .services {
+  .servicesBody {
     background: var(--darkGrey);
     text-align: center;
   }

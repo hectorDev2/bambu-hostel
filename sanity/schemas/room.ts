@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'room',
@@ -20,12 +20,65 @@ export default defineType({
       }
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: { type: 'author' }
+      name: 'type',
+      title: 'Type',
+      initialValue: 'medium',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'single', value: 'single' },
+          { title: 'double', value: 'family' },
+          { title: 'presidencial', value: 'presidencial' }
+        ]
+      }
+    }),
+
+    defineField({
+      name: 'price',
+      title: 'Price',
+      type: 'number'
+    }),
+     defineField({
+      name: 'capacity',
+      title: 'Capacity',
+      type: 'number'
+    }),
+
+    defineField({
+      name: 'pet',
+      title: 'Pets',
+      type: 'boolean'
     }),
     defineField({
+      name: 'breakfast',
+      title: 'Breakfast',
+      type: 'boolean'
+    }),
+    defineField({
+      name: 'featured',
+      title: 'featured',
+      type: 'boolean'
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'string'
+    }),
+
+    defineField({
+      name: 'size',
+      title: 'Size',
+      type: 'string',
+      initialValue: 'medium',
+      options: {
+        list: [
+          { title: 'small', value: 'small' },
+          { title: 'medium', value: 'medium' },
+          { title: 'large', value: 'large' }
+        ]
+      }
+    }),
+        defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
@@ -41,23 +94,27 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
+      name: 'extras',
+      title: 'Extras',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }]
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'extra',
+          fields: [{ type: 'string', name: 'extra' }]
+        })
+      ]
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime'
-    }),
-    defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent'
+      type: 'array',
+      name: 'image',
+      title: 'Gallery Image',
+      of: [{ type: 'image' }],
+      options: {
+        layout: 'grid'
+      }
     })
   ],
-
   preview: {
     select: {
       title: 'title',
